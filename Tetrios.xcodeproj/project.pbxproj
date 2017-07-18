@@ -15,6 +15,7 @@
 		86A3648E1F1C2EA9001085E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86A3648C1F1C2EA9001085E1 /* LaunchScreen.storyboard */; };
 		86A364991F1C2EA9001085E1 /* TetriosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A364981F1C2EA9001085E1 /* TetriosTests.swift */; };
 		86A364A41F1C2EA9001085E1 /* TetriosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A364A31F1C2EA9001085E1 /* TetriosUITests.swift */; };
+		86A364C01F1D833E001085E1 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A364BF1F1D833E001085E1 /* Array2D.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		86A3649F1F1C2EA9001085E1 /* TetriosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TetriosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86A364A31F1C2EA9001085E1 /* TetriosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetriosUITests.swift; sourceTree = "<group>"; };
 		86A364A51F1C2EA9001085E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86A364BF1F1D833E001085E1 /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				86A364851F1C2EA9001085E1 /* GameViewController.swift */,
 				86A364871F1C2EA9001085E1 /* Main.storyboard */,
 				86A3648A1F1C2EA9001085E1 /* Assets.xcassets */,
+				86A364BF1F1D833E001085E1 /* Array2D.swift */,
 				86A3648C1F1C2EA9001085E1 /* LaunchScreen.storyboard */,
 				86A3648F1F1C2EA9001085E1 /* Info.plist */,
 			);
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86A364841F1C2EA9001085E1 /* GameScene.swift in Sources */,
+				86A364C01F1D833E001085E1 /* Array2D.swift in Sources */,
 				86A364861F1C2EA9001085E1 /* GameViewController.swift in Sources */,
 				86A364801F1C2EA9001085E1 /* AppDelegate.swift in Sources */,
 			);
@@ -493,6 +497,7 @@
 				86A364AA1F1C2EA9001085E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		86A364AB1F1C2EA9001085E1 /* Build configuration list for PBXNativeTarget "TetriosTests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +506,7 @@
 				86A364AD1F1C2EA9001085E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		86A364AE1F1C2EA9001085E1 /* Build configuration list for PBXNativeTarget "TetriosUITests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +515,7 @@
 				86A364B01F1C2EA9001085E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
