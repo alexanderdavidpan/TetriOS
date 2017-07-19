@@ -16,6 +16,7 @@
 		86A364991F1C2EA9001085E1 /* TetriosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A364981F1C2EA9001085E1 /* TetriosTests.swift */; };
 		86A364A41F1C2EA9001085E1 /* TetriosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A364A31F1C2EA9001085E1 /* TetriosUITests.swift */; };
 		86A364C01F1D833E001085E1 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A364BF1F1D833E001085E1 /* Array2D.swift */; };
+		86A364C21F1EC3BC001085E1 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A364C11F1EC3BC001085E1 /* Block.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		86A364A31F1C2EA9001085E1 /* TetriosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetriosUITests.swift; sourceTree = "<group>"; };
 		86A364A51F1C2EA9001085E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86A364BF1F1D833E001085E1 /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
+		86A364C11F1EC3BC001085E1 /* Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				86A364BF1F1D833E001085E1 /* Array2D.swift */,
 				86A3648C1F1C2EA9001085E1 /* LaunchScreen.storyboard */,
 				86A3648F1F1C2EA9001085E1 /* Info.plist */,
+				86A364C11F1EC3BC001085E1 /* Block.swift */,
 			);
 			path = Tetrios;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			files = (
 				86A364841F1C2EA9001085E1 /* GameScene.swift in Sources */,
 				86A364C01F1D833E001085E1 /* Array2D.swift in Sources */,
+				86A364C21F1EC3BC001085E1 /* Block.swift in Sources */,
 				86A364861F1C2EA9001085E1 /* GameViewController.swift in Sources */,
 				86A364801F1C2EA9001085E1 /* AppDelegate.swift in Sources */,
 			);
