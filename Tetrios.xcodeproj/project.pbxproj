@@ -19,6 +19,8 @@
 		86A364C21F1EC3BC001085E1 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A364C11F1EC3BC001085E1 /* Block.swift */; };
 		86A364C41F1EF3D9001085E1 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A364C31F1EF3D9001085E1 /* Shape.swift */; };
 		86F072031F212EB900BFA185 /* SquareShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F072021F212EB900BFA185 /* SquareShape.swift */; };
+		86F072051F2163C900BFA185 /* TShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F072041F2163C900BFA185 /* TShape.swift */; };
+		86F072071F217ED100BFA185 /* LineShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F072061F217ED100BFA185 /* LineShape.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		86A364C11F1EC3BC001085E1 /* Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
 		86A364C31F1EF3D9001085E1 /* Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		86F072021F212EB900BFA185 /* SquareShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareShape.swift; sourceTree = "<group>"; };
+		86F072041F2163C900BFA185 /* TShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TShape.swift; sourceTree = "<group>"; };
+		86F072061F217ED100BFA185 /* LineShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineShape.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				86F072021F212EB900BFA185 /* SquareShape.swift */,
+				86F072041F2163C900BFA185 /* TShape.swift */,
+				86F072061F217ED100BFA185 /* LineShape.swift */,
 				86A3647F1F1C2EA9001085E1 /* AppDelegate.swift */,
 				86A364831F1C2EA9001085E1 /* GameScene.swift */,
 				86A364851F1C2EA9001085E1 /* GameViewController.swift */,
@@ -276,6 +282,8 @@
 				86A364841F1C2EA9001085E1 /* GameScene.swift in Sources */,
 				86A364C41F1EF3D9001085E1 /* Shape.swift in Sources */,
 				86A364C01F1D833E001085E1 /* Array2D.swift in Sources */,
+				86F072071F217ED100BFA185 /* LineShape.swift in Sources */,
+				86F072051F2163C900BFA185 /* TShape.swift in Sources */,
 				86A364C21F1EC3BC001085E1 /* Block.swift in Sources */,
 				86A364861F1C2EA9001085E1 /* GameViewController.swift in Sources */,
 				86A364801F1C2EA9001085E1 /* AppDelegate.swift in Sources */,
