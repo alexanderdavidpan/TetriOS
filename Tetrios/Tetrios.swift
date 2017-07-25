@@ -15,6 +15,9 @@ let StartingRow = 0
 let PreviewColumn = 12
 let PreviewRow = 1
 
+let PointsPerLine = 10
+let LevelThreshold = 500
+
 protocol TetriosDelegate {
     // Invoked when the current round of Tetrios ends
     func gameDidEnd(tetrios: Tetrios)
@@ -40,6 +43,9 @@ class Tetrios {
     var nextShape:Shape?
     var fallingShape:Shape?
     var delegate:TetriosDelegate?
+    
+    var score = 0
+    var level = 1
     
     init() {
         fallingShape = nil
@@ -109,7 +115,62 @@ class Tetrios {
     }
     
     func endGame() {
+        score = 0
+        level = 1
+        
         delegate?.gameDidEnd(self)
+    }
+    
+    func removeCompletedLines() -> (linesRemoved: Array<Array<Block>>, fallenBlocks: Array<Array<Block>>) {
+        var removedLines = Array<Array<Block>>()
+        for row in (1..<NumRows).reverse() {
+            var rowOfBlocks = Array<Block>()
+            for column in 0..<NumColumns {
+                guard let block = blockArray[column, row] else {
+                    continue
+                }
+                rowOfBlocks.append(block)
+            }
+            if rowOfBlocks.count == NumColumns {
+                removedLines.append(rowOfBlocks)
+                for block in rowOfBlocks {
+                    blockArray[block.column, block.row] = nil
+                }
+            }
+        }
+        
+        if removedLines.count == 0 {
+            return ([], [])
+        }
+        
+        let pointsEarned = removedLines.count * PointsPerLine * level
+        score += pointsEarned
+        if score >= level * LevelThreshold {
+            level += 1
+            delegate?.gameDidLevelUp(self)
+        }
+        
+        var fallenBlocks = Array<Array<Block>>()
+        for column in 0..<NumColumns {
+            var fallenBlocksArray = Array<Block>()
+            for row in (1..<removedLines[0][0].row).reverse() {
+                guard let block = blockArray[column, row] else {
+                    continue
+                }
+                var newRow = row
+                while (newRow < NumRows - 1 && blockArray[column, newRow + 1] == nil) {
+                    newRow += 1
+                }
+                block.row = newRow
+                blockArray[column, row] = nil
+                blockArray[column, newRow] = block
+                fallenBlocksArray.append(block)
+            }
+            if fallenBlocksArray.count > 0 {
+                fallenBlocks.append(fallenBlocksArray)
+            }
+        }
+        return (removedLines, fallenBlocks)
     }
     
     func dropShape() {
@@ -177,5 +238,21 @@ class Tetrios {
             return
         }
         delegate?.gameShapeDidMove(self)
+    }
+    
+    func removeAllBlocks() -> Array<Array<Block>> {
+        var allBlocks = Array<Array<Block>>()
+        for row in 0..<NumRows {
+            var rowOfBlocks = Array<Block>()
+            for column in 0..<NumColumns {
+                guard let block = blockArray[column, row] else {
+                    continue
+                }
+                rowOfBlocks.append(block)
+                blockArray[column, row] = nil
+            }
+            allBlocks.append(rowOfBlocks)
+        }
+        return allBlocks
     }
 }
