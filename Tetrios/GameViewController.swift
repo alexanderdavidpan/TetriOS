@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, TetriosDelegate {
     
     var scene: GameScene!
     var tetrios:Tetrios!
@@ -28,19 +28,11 @@ class GameViewController: UIViewController {
         scene.tick = didTick
         
         tetrios = Tetrios()
+        tetrios.delegate = self
         tetrios.beginGame()
 
         // Present the scene.
         skView.presentScene(scene)
-        
-        scene.addPreviewShapeToScene(tetrios.nextShape!) {
-            self.tetrios.nextShape?.moveTo(StartingColumn, row: StartingRow)
-            self.scene.movePreviewShape(self.tetrios.nextShape!) {
-                let nextShapes = self.tetrios.newShape()
-                self.scene.startTicking()
-                self.scene.addPreviewShapeToScene(nextShapes.nextShape!) {}
-            }
-        }
     }
 
     override func prefersStatusBarHidden() -> Bool {
@@ -48,8 +40,53 @@ class GameViewController: UIViewController {
     }
     
     func didTick() {
-        tetrios.fallingShape?.lowerShapeByOneRow()
-        scene.redrawShape(tetrios.fallingShape!, completion: {})
+        tetrios.letShapeFall()
+    }
+    
+    func nextShape() {
+        let newShapes = tetrios.newShape()
+        guard let fallingShape = newShapes.fallingShape else {
+            return
+        }
+        self.scene.addPreviewShapeToScene(newShapes.nextShape!) {}
+        self.scene.movePreviewShape(fallingShape) {
+            // #16
+            self.view.userInteractionEnabled = true
+            self.scene.startTicking()
+        }
+    }
+    
+    func gameDidBegin(tetrios: Tetrios) {
+        // The following is false when restarting a new game
+        if tetrios.nextShape != nil && tetrios.nextShape!.blocks[0].sprite == nil {
+            scene.addPreviewShapeToScene(tetrios.nextShape!) {
+                self.nextShape()
+            }
+        } else {
+            nextShape()
+        }
+    }
+    
+    func gameDidEnd(tetrios: Tetrios) {
+        view.userInteractionEnabled = false
+        scene.stopTicking()
+    }
+    
+    func gameDidLevelUp(tetrios: Tetrios) {
+        
+    }
+    
+    func gameShapeDidDrop(tetrios: Tetrios) {
+        
+    }
+    
+    func gameShapeDidLand(tetrios: Tetrios) {
+        scene.stopTicking()
+        nextShape()
+    }
+    
+    func gameShapeDidMove(tetrios: Tetrios) {
+        scene.redrawShape(tetrios.fallingShape!) {}
     }
     
 }
