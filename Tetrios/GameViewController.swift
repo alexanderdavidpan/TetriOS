@@ -14,7 +14,10 @@ class GameViewController: UIViewController, TetriosDelegate, UIGestureRecognizer
     var scene: GameScene!
     var tetrios:Tetrios!
     var panPointReference:CGPoint?
-
+    
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var levelLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
