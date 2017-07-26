@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController, TetriosDelegate {
+class GameViewController: UIViewController, TetriosDelegate, UIGestureRecognizerDelegate {
     
     var scene: GameScene!
     var tetrios:Tetrios!
@@ -43,6 +43,10 @@ class GameViewController: UIViewController, TetriosDelegate {
         tetrios.letShapeFall()
     }
     
+    @IBAction func didTick(sender: UITapGestureRecognizer) {
+        tetrios.rotateShape()
+    }
+    
     func nextShape() {
         let newShapes = tetrios.newShape()
         guard let fallingShape = newShapes.fallingShape else {
@@ -50,7 +54,6 @@ class GameViewController: UIViewController, TetriosDelegate {
         }
         self.scene.addPreviewShapeToScene(newShapes.nextShape!) {}
         self.scene.movePreviewShape(fallingShape) {
-            // #16
             self.view.userInteractionEnabled = true
             self.scene.startTicking()
         }
