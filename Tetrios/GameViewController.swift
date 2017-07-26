@@ -13,6 +13,7 @@ class GameViewController: UIViewController, TetriosDelegate, UIGestureRecognizer
     
     var scene: GameScene!
     var tetrios:Tetrios!
+    var panPointReference:CGPoint?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,4 +93,20 @@ class GameViewController: UIViewController, TetriosDelegate, UIGestureRecognizer
         scene.redrawShape(tetrios.fallingShape!) {}
     }
     
+    @IBAction func didPan(sender: UIPanGestureRecognizer) {
+        let currentPoint = sender.translationInView(self.view)
+        if let originalPoint = panPointReference {
+            if abs(currentPoint.x - originalPoint.x) > (BlockSize * 0.9) {
+                if sender.velocityInView(self.view).x > CGFloat(0) {
+                    tetrios.moveShapeRight()
+                    panPointReference = currentPoint
+                } else {
+                    tetrios.moveShapeLeft()
+                    panPointReference = currentPoint
+                }
+            }
+        } else if sender.state == .Began {
+            panPointReference = currentPoint
+        }
+    }
 }
