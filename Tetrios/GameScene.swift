@@ -124,6 +124,12 @@ class GameScene: SKScene {
         shapeLayer.position = LayerPosition
         shapeLayer.addChild(gameBoard)
         gameLayer.addChild(shapeLayer)
+        
+        runAction(SKAction.repeatActionForever(SKAction.playSoundFileNamed("Sounds/theme.mp3", waitForCompletion: true)))
+    }
+    
+    func playSound(sound:String) {
+        runAction(SKAction.playSoundFileNamed(sound, waitForCompletion: false))
     }
     
     func animateCollapsingLines(linesToRemove: Array<Array<Block>>, fallenBlocks: Array<Array<Block>>, completion:() -> ()) {

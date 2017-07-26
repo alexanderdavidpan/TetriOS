@@ -20,6 +20,7 @@
 		86A364C41F1EF3D9001085E1 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A364C31F1EF3D9001085E1 /* Shape.swift */; };
 		86A858C11F231DE600188307 /* Tetrios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A858C01F231DE600188307 /* Tetrios.swift */; };
 		86B1A2271F288FD700C01FE8 /* whitebg.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B1A2261F288FD700C01FE8 /* whitebg.png */; };
+		86B1A2291F28992600C01FE8 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 86B1A2281F28992600C01FE8 /* Sounds */; };
 		86F072031F212EB900BFA185 /* SquareShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F072021F212EB900BFA185 /* SquareShape.swift */; };
 		86F072051F2163C900BFA185 /* TShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F072041F2163C900BFA185 /* TShape.swift */; };
 		86F072071F217ED100BFA185 /* LineShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F072061F217ED100BFA185 /* LineShape.swift */; };
@@ -66,6 +67,7 @@
 		86A364C31F1EF3D9001085E1 /* Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		86A858C01F231DE600188307 /* Tetrios.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tetrios.swift; sourceTree = "<group>"; };
 		86B1A2261F288FD700C01FE8 /* whitebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whitebg.png; sourceTree = "<group>"; };
+		86B1A2281F28992600C01FE8 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
 		86F072021F212EB900BFA185 /* SquareShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareShape.swift; sourceTree = "<group>"; };
 		86F072041F2163C900BFA185 /* TShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TShape.swift; sourceTree = "<group>"; };
 		86F072061F217ED100BFA185 /* LineShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineShape.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		86A3647E1F1C2EA9001085E1 /* Tetrios */ = {
 			isa = PBXGroup;
 			children = (
+				86B1A2281F28992600C01FE8 /* Sounds */,
 				86F072021F212EB900BFA185 /* SquareShape.swift */,
 				86F072041F2163C900BFA185 /* TShape.swift */,
 				86F072061F217ED100BFA185 /* LineShape.swift */,
@@ -269,6 +272,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86B1A2291F28992600C01FE8 /* Sounds in Resources */,
 				86B1A2271F288FD700C01FE8 /* whitebg.png in Resources */,
 				86A3648E1F1C2EA9001085E1 /* LaunchScreen.storyboard in Resources */,
 				86A3648B1F1C2EA9001085E1 /* Assets.xcassets in Resources */,

@@ -64,6 +64,10 @@ class GameViewController: UIViewController, TetriosDelegate, UIGestureRecognizer
     }
     
     func gameDidBegin(tetrios: Tetrios) {
+        levelLabel.text = "\(tetrios.level)"
+        scoreLabel.text = "\(tetrios.score)"
+        scene.tickLengthMillis = TickLengthLevelOne
+        
         // The following is false when restarting a new game
         if tetrios.nextShape != nil && tetrios.nextShape!.blocks[0].sprite == nil {
             scene.addPreviewShapeToScene(tetrios.nextShape!) {
@@ -77,10 +81,20 @@ class GameViewController: UIViewController, TetriosDelegate, UIGestureRecognizer
     func gameDidEnd(tetrios: Tetrios) {
         view.userInteractionEnabled = false
         scene.stopTicking()
+        scene.playSound("Sounds/gameover.mp3")
+        scene.animateCollapsingLines(tetrios.removeAllBlocks(), fallenBlocks: tetrios.removeAllBlocks()) {
+            tetrios.beginGame()
+        }
     }
     
     func gameDidLevelUp(tetrios: Tetrios) {
-        
+        levelLabel.text = "\(tetrios.level)"
+        if scene.tickLengthMillis >= 100 {
+            scene.tickLengthMillis -= 100
+        } else if scene.tickLengthMillis > 50 {
+            scene.tickLengthMillis -= 50
+        }
+        scene.playSound("Sounds/levelup.mp3")
     }
     
     func gameShapeDidDrop(tetrios: Tetrios) {
@@ -88,11 +102,23 @@ class GameViewController: UIViewController, TetriosDelegate, UIGestureRecognizer
         scene.redrawShape(tetrios.fallingShape!) {
             tetrios.letShapeFall()
         }
+        scene.playSound("Sounds/drop.mp3")
     }
     
     func gameShapeDidLand(tetrios: Tetrios) {
         scene.stopTicking()
-        nextShape()
+        self.view.userInteractionEnabled = false
+        
+        let removedLines = tetrios.removeCompletedLines()
+        if removedLines.linesRemoved.count > 0 {
+            self.scoreLabel.text = "\(tetrios.score)"
+            scene.animateCollapsingLines(removedLines.linesRemoved, fallenBlocks:removedLines.fallenBlocks) {
+                self.gameShapeDidLand(tetrios)
+            }
+            scene.playSound("Sounds/bomb.mp3")
+        } else {
+            nextShape()
+        }
     }
     
     func gameShapeDidMove(tetrios: Tetrios) {
